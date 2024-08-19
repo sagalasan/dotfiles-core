@@ -1,0 +1,1 @@
+which zsh >& /dev/null || echo "zsh not installed, please install using 'sudo apt install -y zsh'..."

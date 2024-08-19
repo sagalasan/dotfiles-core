@@ -29,3 +29,7 @@ install: stow
 # NB: --dotfiles would be a convenient option, but https://github.com/aspiers/stow/issues/33
 stow:
 	stow --ignore='^README.md' --ignore='^.gitmodules' --ignore='^.gitignore' -t ~ -d $(THISDIR) --restow $(PACKAGES)
+
+.PHONY: stow-dry-run
+stow-dry-run:
+	stow --ignore='^README.md' --ignore='^.gitmodules' --ignore='^.gitignore' -t ~ -d $(THISDIR) --restow $(PACKAGES) -n
