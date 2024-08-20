@@ -3,6 +3,6 @@
 function update_dotfiles {
   pushd ~/dotfiles
   git pull
-  git submodule update --merge --init --recursive
+  git submodule update --recursive --remote
   popd
 }
