@@ -67,7 +67,14 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
+
+# Enables history saving
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=$HISTSIZE
+setopt appendhistory
+setopt share_history        #share history between multiple instances of zsh
 
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM="$HOME/.zsh"
@@ -82,6 +89,13 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# To know the key binding for a key, run `od -c` and press the key
+bindkey '^[[3~' delete-char           # enables DEL key proper behaviour
+bindkey '^[[1;5C' forward-word        # [Ctrl-RightArrow] - move forward one word
+bindkey '^[[1;5D' backward-word       # [Ctrl-LeftArrow] - move backward one word
+bindkey  "^[[H"   beginning-of-line   # [Home] - goes at the begining of the line
+bindkey  "^[[F"   end-of-line         # [End] - goes at the end of the line
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
